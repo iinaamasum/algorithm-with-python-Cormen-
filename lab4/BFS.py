@@ -53,20 +53,23 @@ class Graph:
 
 if __name__ == "__main__":
     g = Graph()
-    vertices = int(input("Number of vertices: "))
+    vertices = int(input("Number of Edge: "))
     for i in range(vertices):
-        u, v = map(int, input("Vertex & Adjacent: ").split(" "))
+        u, v = map(int, input("Edge: ").split(" "))
         g.addEdge(u, v)
 
-    g.bfs(1)
+    source = int(input("Enter the source: "))
+    g.bfs(source)
     df = pd.DataFrame(g.graph)
     print(df)
 
 
 """ 
 input
-3
+5
 1 2
 1 3
 2 3
+3 4
+2 5
 """
