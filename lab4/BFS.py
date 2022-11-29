@@ -34,7 +34,6 @@ class Graph:
 
         while not Q.empty():
             u = Q.get()
-            print("getting Q: ", u)
 
             # checking all adjacent
             for v in self.graph[u]["adjacent"]:
@@ -53,23 +52,39 @@ class Graph:
 
 if __name__ == "__main__":
     g = Graph()
-    vertices = int(input("Number of Edge: "))
-    for i in range(vertices):
+    edge = int(input("Number of Edge: "))
+    for i in range(edge):
         u, v = map(int, input("Edge: ").split(" "))
         g.addEdge(u, v)
 
     source = int(input("Enter the source: "))
     g.bfs(source)
-    df = pd.DataFrame(g.graph)
-    print(df)
+    # df = pd.DataFrame(g.graph)
+
+    for key, property in g.graph.items():
+        print(key, "-->", property)
 
 
 """ 
 input
-5
+3
 1 2
 1 3
 2 3
-3 4
-2 5
+"""
+
+""" 
+Number of Edge: 5
+Edge: 1 2
+Edge: 2 3
+Edge: 1 3
+Edge: 3 5
+Edge: 3 4
+Enter the source: 1
+1 --> {'property': {'color': 'black', 'distance': 0}, 'adjacent': [2, 3]}
+2 --> {'property': {'color': 'black', 'distance': 1, 'parent': 1}, 'adjacent': [3]}
+3 --> {'property': {'color': 'black', 'distance': 1, 'parent': 1}, 'adjacent': [5, 4]}
+5 --> {'property': {'color': 'black', 'distance': 2, 'parent': 3}, 'adjacent': []}
+4 --> {'property': {'color': 'black', 'distance': 2, 'parent': 3}, 'adjacent': []}
+
 """
