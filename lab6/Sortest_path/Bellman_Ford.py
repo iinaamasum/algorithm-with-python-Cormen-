@@ -1,4 +1,5 @@
 import sys
+import matplotlib.pyplot as plt
 
 
 class Graph:
@@ -59,11 +60,13 @@ if __name__ == "__main__":
         u, v, w = map(int, input("Enter vertex, adjacent and weight: ").split(" "))
         g.addEdge(u, v, w)
 
-    result = g.bellman_ford(1)
+    source = int(input("Enter Source: "))
+    result = g.bellman_ford(source)
     if result:
         print("No negative cycle is present.")
         for key, val in g.graph.items():
             print(key, " : ", val)
+
     else:
         print("Inserted graph has a negative cycle")
 
@@ -78,6 +81,7 @@ No negative cycle:
 3 4 10
 5 4 5
 3 5 2
+1
 
 has a negative cycle:
 6
@@ -87,4 +91,5 @@ has a negative cycle:
 4 2 -2
 2 5 1
 5 3 2
+1
 """
