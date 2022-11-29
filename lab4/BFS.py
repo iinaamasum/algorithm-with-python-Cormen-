@@ -8,21 +8,23 @@ class Graph:
         self.graph = {}
 
     def addEdge(self, u: int, v: int) -> None:
-        attribute = {
-            "color": "white",
-            "distance": maxsize,
-            "parent": None,
-        }
-
         if u in self.graph:
             self.graph[u]["adjacent"].append(v)
         else:
             self.graph[u] = {}
-            self.graph[u]["property"] = attribute
+            self.graph[u]["property"] = {
+                "color": "white",
+                "distance": maxsize,
+                "parent": None,
+            }
             self.graph[u]["adjacent"] = [v]
         if not v in self.graph:
             self.graph[v] = {}
-            self.graph[v]["property"] = attribute
+            self.graph[v]["property"] = {
+                "color": "white",
+                "distance": maxsize,
+                "parent": None,
+            }
             self.graph[v]["adjacent"] = []
 
     def bfs(self, s: int) -> None:
@@ -71,20 +73,4 @@ input
 1 2
 1 3
 2 3
-"""
-
-""" 
-Number of Edge: 5
-Edge: 1 2
-Edge: 2 3
-Edge: 1 3
-Edge: 3 5
-Edge: 3 4
-Enter the source: 1
-1 --> {'property': {'color': 'black', 'distance': 0}, 'adjacent': [2, 3]}
-2 --> {'property': {'color': 'black', 'distance': 1, 'parent': 1}, 'adjacent': [3]}
-3 --> {'property': {'color': 'black', 'distance': 1, 'parent': 1}, 'adjacent': [5, 4]}
-5 --> {'property': {'color': 'black', 'distance': 2, 'parent': 3}, 'adjacent': []}
-4 --> {'property': {'color': 'black', 'distance': 2, 'parent': 3}, 'adjacent': []}
-
 """

@@ -7,22 +7,23 @@ class Graph:
         self.graph = {}
 
     def addEdge(self, u: int, v: int, w: int) -> None:
-        attribute = {
-            "parent": None,
-            "distance": sys.maxsize,
-        }
-
         if u in self.graph:
             self.graph[u]["adjacent"].append([v, w])
 
         else:
             self.graph[u] = {}
-            self.graph[u]["property"] = attribute
+            self.graph[u]["property"] = {
+                "parent": None,
+                "distance": sys.maxsize,
+            }
             self.graph[u]["adjacent"] = [[v, w]]
 
         if v not in self.graph:
             self.graph[v] = {}
-            self.graph[v]["property"] = attribute
+            self.graph[v]["property"] = {
+                "parent": None,
+                "distance": sys.maxsize,
+            }
             self.graph[v]["adjacent"] = []
 
     def bellman_ford(self, s) -> bool:

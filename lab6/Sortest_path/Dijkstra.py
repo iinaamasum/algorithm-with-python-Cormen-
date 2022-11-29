@@ -30,18 +30,16 @@ class Graph:
         self.graph = {}
 
     def addEdge(self, u: int, v: int, w: int) -> None:
-        property = {"parent": None, "distance": sys.maxsize}
-
         if u in self.graph:
             self.graph[u]["adjacent"].append([v, w])
         else:
             self.graph[u] = {}
-            self.graph[u]["property"] = property
+            self.graph[u]["property"] = {"parent": None, "distance": sys.maxsize}
             self.graph[u]["adjacent"] = [[v, w]]
 
         if v not in self.graph:
             self.graph[v] = {}
-            self.graph[v]["property"] = property
+            self.graph[v]["property"] = {"parent": None, "distance": sys.maxsize}
             self.graph[v]["adjacent"] = []
 
     def dijkstra(self, s: int) -> None:
