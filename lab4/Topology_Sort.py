@@ -2,6 +2,7 @@ class Graph:
     def __init__(self) -> None:
         self.graph = {}
         self.time = 0
+        self.stack = []
 
     def addEdge(self, u: int, v: int) -> None:
         if u in self.graph:
@@ -48,15 +49,13 @@ class Graph:
         self.time += 1
         self.graph[u]["property"]["finishing_time"] = self.time
         self.graph[u]["property"]["color"] = "black"
+        # for topological sort
+        self.stack.append(u)
 
     # topology sort
     def topologySort(self) -> None:
-        sorted_data = {}
-        for key, val in self.graph.items():
-            sorted_data[self.graph[key]["property"]["finishing_time"]] = key
-
-        for i in reversed(sorted(sorted_data.keys())):
-            print(sorted_data[i], end=",")
+        while self.stack:
+            print(self.stack.pop(), end=" ")
         print()
 
 
