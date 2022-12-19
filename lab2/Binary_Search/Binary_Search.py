@@ -1,5 +1,10 @@
+import time
+
+
 def binary_search(arr, searching):
-    low, high = 0, len(arr) - 1
+    low = 0
+    high = len(arr) - 1
+    print(high)
     while low <= high:
         mid = (low + high) // 2
 
@@ -14,5 +19,17 @@ def binary_search(arr, searching):
 
 
 if __name__ == "__main__":
-    arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    print(binary_search(arr, -1))
+    with open("binary_1.txt", "r") as file:
+        arr = list(map(str, file.read().split(",")))
+    file.close()
+
+    for i in range(len(arr)):
+        try:
+            arr[i] = int(arr[i])
+        except:
+            del arr[i]
+    start = time.time()
+    print(binary_search(arr, 47345))
+    end = time.time()
+
+    print((end - start) * 1000)

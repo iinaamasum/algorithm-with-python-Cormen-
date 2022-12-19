@@ -1,6 +1,5 @@
 from sys import maxsize
 from queue import Queue
-import pandas as pd
 
 
 class Graph:
@@ -27,9 +26,19 @@ class Graph:
             }
             self.graph[v]["adjacent"] = []
 
+    def printPath(self, s, v):
+        if s == v:
+            print(v, end=" ")
+            return
+        elif self.graph[v]["property"]["parent"] == None:
+            print(f"No path from {s} to {v}.")
+        else:
+            self.printPath(s, self.graph[v]["property"]["parent"])
+        print(v, end=" ")
+
     def bfs(self, s: int) -> None:
         # discovering source
-        self.graph[s]["property"] = {"color": "gray", "distance": 0}
+        self.graph[s]["property"] = {"color": "gray", "distance": 0, "parent": None}
         # taking a queue
         Q = Queue()
         Q.put(s)
@@ -61,10 +70,11 @@ if __name__ == "__main__":
 
     source = int(input("Enter the source: "))
     g.bfs(source)
-    # df = pd.DataFrame(g.graph)
-
     for key, property in g.graph.items():
         print(key, "-->", property)
+
+    vertex_for_path = int(input("\nEnter the vertex to print path: "))
+    g.printPath(source, vertex_for_path)
 
 
 """ 
@@ -73,4 +83,23 @@ input
 1 2
 1 3
 2 3
+"""
+
+
+""" 
+Number of Edge: 5
+Edge: 1 2
+Edge: 2 3
+Edge: 3 4
+Edge: 1 5
+Edge: 3 5
+Enter the source: 1
+1 --> {'property': {'color': 'black', 'distance': 0, 'parent': None}, 'adjacent': [2, 5]}
+2 --> {'property': {'color': 'black', 'distance': 1, 'parent': 1}, 'adjacent': [3]}
+3 --> {'property': {'color': 'black', 'distance': 2, 'parent': 2}, 'adjacent': [4, 5]}
+4 --> {'property': {'color': 'black', 'distance': 3, 'parent': 3}, 'adjacent': []}
+5 --> {'property': {'color': 'black', 'distance': 1, 'parent': 1}, 'adjacent': []}
+
+Enter the vertex to print path: 4
+1 2 3 4 
 """

@@ -36,7 +36,7 @@ def random_number(number):
         number_list.append(random.randint(0, 100000))
         number -= 1
 
-    with open("random_input.txt", "a+") as file:
+    with open("test.txt", "a+") as file:
         for val in number_list:
             file.write(str(val) + ",")
 
@@ -44,9 +44,9 @@ def random_number(number):
 
 
 if __name__ == "__main__":
-    # random_number(5000)
+    random_number(5000)
     arr = []
-    with open("random_input.txt", "r") as file:
+    with open("test.txt", "r") as file:
         file_inputs = list(map(str, file.read().split(",")))
     file.close()
 
@@ -59,6 +59,10 @@ if __name__ == "__main__":
     # insertion_sort(arr)
     # selection_sort(arr)
     end = time.time()
+
+    with open("binary_5.txt", "a+") as file:
+        for val in arr:
+            file.write(str(val) + ",")
 
     print((end - start))
 

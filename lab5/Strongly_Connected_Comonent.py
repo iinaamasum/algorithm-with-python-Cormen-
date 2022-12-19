@@ -90,7 +90,7 @@ class Graph:
 
 if __name__ == "__main__":
     g = Graph()
-    edges = int(input("Enter Edges: "))
+    edges = int(input("Enter the number of Edges: "))
     for i in range(edges):
         u, v = map(int, input("Enter Edge: ").split(" "))
         g.addEdge(u, v)
@@ -118,4 +118,30 @@ input
 5 6
 6 4
 6 7
+"""
+
+""" 
+Enter the number of Edges: 10
+Enter Edge: 0 1
+Enter Edge: 1 2
+Enter Edge: 2 0
+Enter Edge: 2 3
+Enter Edge: 3 4
+Enter Edge: 4 5
+Enter Edge: 4 7
+Enter Edge: 5 6
+Enter Edge: 6 4
+Enter Edge: 6 7
+
+Transpose Graph:
+0 : {'property': {'color': 'black', 'dis_time': 17, 'fin_time': 22, 'parent': None}, 'adjacent': [2]}
+1 : {'property': {'color': 'black', 'dis_time': 19, 'fin_time': 20, 'parent': 2}, 'adjacent': [0]}
+2 : {'property': {'color': 'black', 'dis_time': 18, 'fin_time': 21, 'parent': 0}, 'adjacent': [1]}
+3 : {'property': {'color': 'black', 'dis_time': 23, 'fin_time': 24, 'parent': None}, 'adjacent': [2]}
+4 : {'property': {'color': 'black', 'dis_time': 25, 'fin_time': 30, 'parent': None}, 'adjacent': [3, 6]}
+5 : {'property': {'color': 'black', 'dis_time': 27, 'fin_time': 28, 'parent': 6}, 'adjacent': [4]}
+7 : {'property': {'color': 'black', 'dis_time': 31, 'fin_time': 32, 'parent': None}, 'adjacent': [4, 6]}
+6 : {'property': {'color': 'black', 'dis_time': 26, 'fin_time': 29, 'parent': 4}, 'adjacent': [5]}
+
+SCC: [[1, 2, 0], [3], [5, 6, 4], [7]]
 """

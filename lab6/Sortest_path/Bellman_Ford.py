@@ -1,5 +1,4 @@
 import sys
-import matplotlib.pyplot as plt
 
 
 class Graph:
@@ -64,7 +63,8 @@ if __name__ == "__main__":
     source = int(input("Enter Source: "))
     result = g.bellman_ford(source)
     if result:
-        print("No negative cycle is present.")
+        print("\nNo negative cycle is present.")
+        print("Graph with shortest distance: ")
         for key, val in g.graph.items():
             print(key, " : ", val)
 
@@ -93,4 +93,23 @@ has a negative cycle:
 2 5 1
 5 3 2
 1
+"""
+
+""" 
+Enter number of edge: 6
+Enter vertex, adjacent and weight: 1 2 10
+Enter vertex, adjacent and weight: 1 3 20
+Enter vertex, adjacent and weight: 2 3 40
+Enter vertex, adjacent and weight: 3 4 10
+Enter vertex, adjacent and weight: 5 4 5
+Enter vertex, adjacent and weight: 3 5 2
+Enter Source: 1
+
+No negative cycle is present.
+Graph with shortest distance: 
+1  :  {'property': {'parent': None, 'distance': 0}, 'adjacent': [[2, 10], [3, 20]]}
+2  :  {'property': {'parent': 1, 'distance': 10}, 'adjacent': [[3, 40]]}
+3  :  {'property': {'parent': 1, 'distance': 20}, 'adjacent': [[4, 10], [5, 2]]}
+4  :  {'property': {'parent': 5, 'distance': 27}, 'adjacent': []}
+5  :  {'property': {'parent': 3, 'distance': 22}, 'adjacent': [[4, 5]]}
 """

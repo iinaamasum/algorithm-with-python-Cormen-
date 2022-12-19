@@ -41,11 +41,12 @@ class Graph:
                     if self.graph[v[0]]["property"]["color"] == "white":
                         heappush(heap, (v[1], [v[0], u[0]]))
 
-        print("\nMST Sum =", mst_sum)
-        print("MST: ")
+        print("\nMST: ")
         print("edge\tweight")
         for key, val in mst.items():
-            print(key, ":", val)
+            print(key, " : ", val)
+        print("-" * 15)
+        print("MST Sum =", mst_sum)
 
 
 if __name__ == "__main__":
@@ -54,8 +55,8 @@ if __name__ == "__main__":
     for i in range(weighted_edges):
         u, v, w = map(int, input("Enter edges with weight: ").split(" "))
         g.addEdge(u, v, w)
-    g.primsMST(1)
-    # print(g.graph)
+    source = int(input("Enter the source: "))
+    g.primsMST(source)
 
 """ 
 input 
@@ -74,4 +75,28 @@ input
 2 3 3
 3 6 8
 2 6 7
+"""
+
+""" 
+Enter the number of weighted edges: 9
+Enter edges with weight: 5 1 4
+Enter edges with weight: 5 4 7
+Enter edges with weight: 1 4 1
+Enter edges with weight: 4 3 5
+Enter edges with weight: 4 2 8
+Enter edges with weight: 1 2 2
+Enter edges with weight: 2 3 3
+Enter edges with weight: 3 6 8
+Enter edges with weight: 2 6 7
+Enter the source: 1
+
+MST: 
+edge    weight
+(1, 4)  :  1
+(1, 2)  :  2
+(2, 3)  :  3
+(1, 5)  :  4
+(2, 6)  :  7
+---------------
+MST Sum = 17
 """

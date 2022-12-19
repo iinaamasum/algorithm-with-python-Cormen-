@@ -45,11 +45,12 @@ class Graph:
                 A.append([u, v, w])
                 mst_sum += w
                 self.disjointSetUnion(u, v)
-        print("MST sum: ", mst_sum)
         print("MST: ")
         print("Edge\tWeight")
         for u, v, w in A:
-            print(f"{u} - {v} : {w}")
+            print(f"{u} - {v}  :  {w}")
+        print("-" * 15)
+        print("MST sum: ", mst_sum)
 
 
 if __name__ == "__main__":
@@ -61,7 +62,7 @@ if __name__ == "__main__":
     print("\nEntered graph: ")
     print("Edge\tWeight")
     for u, v, w in g.graph:
-        print(f"{u} - {v} : {w}")
+        print(f"{u} - {v}  :  {w}")
     print()
     g.krushkalMST()
 
@@ -72,4 +73,50 @@ input
 0 1 10
 1 2 5
 0 2 20
+
+9
+5 1 4
+5 4 7
+1 4 1
+4 3 5
+4 2 8
+1 2 2
+2 3 3
+3 6 8
+2 6 7
+"""
+
+""" 
+Enter the number of edges: 9
+Enter Edge and Weight: 5 1 4
+Enter Edge and Weight: 5 4 7
+Enter Edge and Weight: 1 4 1
+Enter Edge and Weight: 4 3 5
+Enter Edge and Weight: 4 2 8
+Enter Edge and Weight: 1 2 2 
+Enter Edge and Weight: 2 3 3 
+Enter Edge and Weight: 3 6 8
+Enter Edge and Weight: 2 6 7
+
+Entered graph: 
+Edge    Weight
+5 - 1  :  4
+5 - 4  :  7
+1 - 4  :  1
+4 - 3  :  5
+4 - 2  :  8
+1 - 2  :  2
+2 - 3  :  3
+3 - 6  :  8
+2 - 6  :  7
+
+MST: 
+Edge    Weight
+1 - 4  :  1
+1 - 2  :  2
+2 - 3  :  3
+5 - 1  :  4
+2 - 6  :  7
+---------------
+MST sum:  17
 """

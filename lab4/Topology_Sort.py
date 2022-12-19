@@ -67,10 +67,7 @@ if __name__ == "__main__":
         g.addEdge(u, v)
 
     g.dfs()
-    for key, val in g.graph.items():
-        print(key, "->", val)
-    print("\n\n")
-    print("Topology Sort: ", end="")
+    print("\nTopology Sort: ", end="")
     g.topologySort()
 
 """ 
@@ -90,4 +87,16 @@ input
 4 1
 2 3
 3 1
+"""
+
+""" 
+Enter the number of edges: 6
+Enter Edge: 5 2
+Enter Edge: 5 0
+Enter Edge: 4 0
+Enter Edge: 4 1
+Enter Edge: 2 3
+Enter Edge: 3 1
+
+Topology Sort: 4 5 0 2 3 1 
 """

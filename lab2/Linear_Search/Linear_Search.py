@@ -31,7 +31,7 @@ if __name__ == "__main__":
     # random_number(25000)
 
     # read files and convert input into int val
-    with open("random_num_5000.txt", "r") as file:
+    with open("random_num_25000.txt", "r") as file:
         arr = list(map(str, file.read().split(",")))
     file.close()
 
@@ -52,12 +52,12 @@ if __name__ == "__main__":
     iter_start_time = time.time()
     linear_search_iterative(arr, searching)
     iter_end_time = time.time()
-
+    print((iter_end_time - iter_start_time) * 1000)
     with open("iter_time_b.txt", "a") as file:
         file.write(str(round((iter_end_time - iter_start_time) * 1000, 3)) + ",")
     file.close()
 
-    searching = -11
+    searching = -111111
     iter_start_time = time.time()
     linear_search_iterative(arr, searching)
     iter_end_time = time.time()
@@ -66,7 +66,7 @@ if __name__ == "__main__":
         file.write(str(round((iter_end_time - iter_start_time) * 1000, 3)) + ",")
     file.close()
 
-    searching = 76509
+    searching = -11000
     iter_start_time = time.time()
     linear_search_iterative(arr, searching)
     iter_end_time = time.time()

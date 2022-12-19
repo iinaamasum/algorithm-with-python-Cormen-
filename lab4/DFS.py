@@ -4,6 +4,7 @@ time = 0
 class Graph:
     def __init__(self) -> None:
         self.graph = {}
+        self.result = []
 
     def addEdge(self, u: int, v: int) -> None:
 
@@ -40,6 +41,7 @@ class Graph:
         # print(self.graph[u]["property"]["color"])
         self.graph[u]["property"]["color"] = "gray"
         self.graph[u]["property"]["discovery_time"] = time
+        self.result.append(u)
 
         # calling all adjacent of u
         for v in self.graph[u]["adjacent"]:
@@ -63,6 +65,9 @@ if __name__ == "__main__":
     for key, val in g.graph.items():
         print(key, ": ", val)
 
+    print("\nDFS: ", end=" ")
+    print(g.result)
+
 
 """ 
 input 
@@ -79,4 +84,23 @@ input
 3 4
 5 4
 3 5
+"""
+
+""" 
+Enter the number of edge: 6
+Enter edge: 1 2
+Enter edge: 1 3
+Enter edge: 2 5
+Enter edge: 2 4
+Enter edge: 5 6
+Enter edge: 4 7
+1 :  {'property': {'color': 'black', 'discovery_time': 1, 'finishing_time': 14, 'parent': None}, 'adjacent': [2, 3]}
+2 :  {'property': {'color': 'black', 'discovery_time': 2, 'finishing_time': 11, 'parent': 1}, 'adjacent': [5, 4]}
+3 :  {'property': {'color': 'black', 'discovery_time': 12, 'finishing_time': 13, 'parent': 1}, 'adjacent': []}
+5 :  {'property': {'color': 'black', 'discovery_time': 3, 'finishing_time': 6, 'parent': 2}, 'adjacent': [6]}
+4 :  {'property': {'color': 'black', 'discovery_time': 7, 'finishing_time': 10, 'parent': 2}, 'adjacent': [7]}
+6 :  {'property': {'color': 'black', 'discovery_time': 4, 'finishing_time': 5, 'parent': 5}, 'adjacent': []}
+7 :  {'property': {'color': 'black', 'discovery_time': 8, 'finishing_time': 9, 'parent': 4}, 'adjacent': []}
+
+DFS:  [1, 2, 5, 6, 4, 7, 3]
 """
