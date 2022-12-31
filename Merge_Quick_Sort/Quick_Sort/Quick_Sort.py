@@ -1,15 +1,13 @@
-def quick_sort(List, left, right):
-    if right > left:
-        pivot = left
-        pivot = partition(List, left, right, pivot)
-        quick_sort(List, left, pivot - 1)
-        quick_sort(List, left, pivot + 1)
+def quick_sort(ar, left, right):
+    if left < right:
+        pivot = partition(ar, left, right)
+        quick_sort(ar, left, pivot - 1)
+        quick_sort(ar, pivot + 1, right)
+    return ar
 
 
-def partition(ar, left, right, pivot):
-    pivot_val = ar[pivot]
-    ar[pivot], ar[right] = ar[right], ar[pivot]
-
+def partition(ar, left, right):
+    pivot_val = ar[right]
     start_idx = left
 
     for i in range(left, right):

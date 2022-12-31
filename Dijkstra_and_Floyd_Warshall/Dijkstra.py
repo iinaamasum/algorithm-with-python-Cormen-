@@ -29,7 +29,7 @@ class Graph:
         self.graph[s]["property"]["distance"] = 0
 
         # taking result set
-        S = []
+        S = set()
         Q = []
 
         for key in self.graph.keys():
@@ -37,7 +37,7 @@ class Graph:
 
         while Q:
             u = heappop(Q)
-            S.append(u)
+            S = S.union({u})
 
             for key, val in self.graph.items():
                 for edge in val["adjacent"]:
@@ -80,8 +80,8 @@ input
 1 3 20
 2 3 40
 3 4 10
-5 4 5
 3 5 2
+5 4 5
 1
 """
 

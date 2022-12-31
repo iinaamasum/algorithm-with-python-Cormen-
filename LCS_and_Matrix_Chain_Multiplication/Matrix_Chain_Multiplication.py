@@ -47,16 +47,6 @@ def matrixChainOrder(p):
     return m, s
 
 
-def optimalParens(s, i, j):
-    if i == j:
-        print(f"A{i}")
-    else:
-        print("(")
-        optimalParens(s, i, s[i][j])
-        optimalParens(s, s[i][j] + 1, j)
-        print(")")
-
-
 # [30, 35, 15, 5, 10, 20, 25]
 print("Total Cost Recursive:", memorizedMatrixChain([1, 4, 5, 10, 7]))
 m, s = matrixChainOrder([1, 4, 5, 10, 7])

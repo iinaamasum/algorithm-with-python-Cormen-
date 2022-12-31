@@ -30,10 +30,6 @@ def minMaxAlgoDAC(array, min_val, max_val, left, right):
         return min_val, max_val
 
 
-def generateRandomNumber(num):
-    pass
-
-
 if __name__ == "__main__":
     a = []
     # reading data from file

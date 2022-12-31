@@ -55,12 +55,12 @@ if __name__ == "__main__":
             arr.append(int(val))
 
     start = time.time()
-    bubble_sort(arr)
-    # insertion_sort(arr)
+    # bubble_sort(arr)
+    insertion_sort(arr)
     # selection_sort(arr)
     end = time.time()
 
-    with open("binary_5.txt", "a+") as file:
+    with open("result.txt", "a+") as file:
         for val in arr:
             file.write(str(val) + ",")
 

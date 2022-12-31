@@ -1,0 +1,37 @@
+lab 1:
+    i) Bubble Sort
+    ii) Selection Sort
+    iii) Insertion Sort
+
+lab 2:
+    i) Binary Search
+    ii) Linear Search
+
+lab 3:
+    i) Merge Sort
+    ii) Quick Sort
+    iii) Min Max Algorithm
+
+lab 4:
+    i) BFS
+    ii) DFS
+    iii) Topological Sort
+
+lab 5:
+    i) Strongly Connected Component
+    ii) Prim's MST
+
+lab 6:
+    i) Kruskal MST
+    ii) Bellman Ford Algorithm
+
+lab 7:
+    i) Dijkstra Shortest path
+    ii) Floyd Warshall all pair shortest path
+
+lab 8:
+    i) LCS
+    ii) Matrix Chain Multiplication
+
+lab 9:
+    i) Red Black Tree Insertion
